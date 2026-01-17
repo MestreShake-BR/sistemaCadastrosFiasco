@@ -12,10 +12,10 @@ import lombok.Setter;
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String nome;
-    String email;
-    String telefone;
+    private int id;
+    private String nome;
+    private String email;
+    private String telefone;
 
     public UserModel() {
     }
