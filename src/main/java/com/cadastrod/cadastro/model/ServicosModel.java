@@ -1,14 +1,15 @@
 package com.cadastrod.cadastro.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
-@Getter
-@Setter
+
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Table(name = "tb_cadastro_de_servicos")
 public class ServicosModel {
 
@@ -23,15 +24,4 @@ public class ServicosModel {
     // um serviço pode ter vários usuários
     @OneToMany(mappedBy = "servicosModel")
     private List<UserModel> users;
-
-    public ServicosModel() {
-    }
-
-    public ServicosModel(int id, String servico, String descricao, String prioridade, int id_user) {
-        this.id = id;
-        this.servico = servico;
-        this.descricao = descricao;
-        this.prioridade = prioridade;
-        this.id_user = id_user;
-    }
 }
