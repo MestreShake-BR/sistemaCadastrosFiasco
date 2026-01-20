@@ -3,13 +3,12 @@ package com.cadastrod.cadastro.controller;
 
 import com.cadastrod.cadastro.model.UserModel;
 import com.cadastrod.cadastro.service.UserService;
-import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/user")
 public class UserController {
     /*
     @PostMapping -- MANDAR
@@ -30,15 +29,13 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/getuser")
+    @GetMapping("/get")
     public List<UserModel> getAll(){
         return userService.getAll();
     }
 
-    @PostMapping("/postuser")
+    @PostMapping("/post")
     public UserModel create(@RequestBody UserModel userModel) {
         return userService.save(userModel);
     }
-
-
 }

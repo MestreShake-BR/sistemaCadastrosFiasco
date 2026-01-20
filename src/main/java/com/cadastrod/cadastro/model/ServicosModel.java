@@ -19,9 +19,9 @@ public class ServicosModel {
     private String servico;
     private String descricao;
     private String prioridade;
-    private int id_user;
+    //private int id_user;
 
     // um serviço pode ter vários usuários
-    @OneToMany(mappedBy = "servicosModel")
-    private List<UserModel> users;
+    //@OneToMany(mappedBy = "servicosModel")
+    //private List<UserModel> users;
 }
