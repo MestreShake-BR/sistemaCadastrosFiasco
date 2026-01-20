@@ -26,10 +26,12 @@ public class UserService {
     }
 
     //Delete
-    public void delete(int id){
+    public boolean delete(int id){
         userRepository.deleteById(id);
+        return true;
     }
 
+    //Update
     public UserModel atualizarDados(Integer id, UserDadosModel dados) {
 
         UserModel user = userRepository.findById(id)
