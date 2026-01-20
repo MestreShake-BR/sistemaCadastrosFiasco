@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### DATA H2 ###
+.data
 ### STS ###
 .apt_generated
 .classpath
@@ -31,3 +33,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/data/testdb.mv.db
+/data/testdb.trace.db
