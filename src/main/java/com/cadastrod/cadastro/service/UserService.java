@@ -1,5 +1,6 @@
 package com.cadastrod.cadastro.service;
 
+import com.cadastrod.cadastro.model.UserDadosModel;
 import com.cadastrod.cadastro.model.UserModel;
 import com.cadastrod.cadastro.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,6 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
-
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -28,5 +28,15 @@ public class UserService {
     //Delete
     public void delete(int id){
         userRepository.deleteById(id);
+    }
+
+    public UserModel atualizarDados(Integer id, UserDadosModel dados) {
+
+        UserModel user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        user.setUserDadosModel(dados);
+
+        return userRepository.save(user);
     }
 }

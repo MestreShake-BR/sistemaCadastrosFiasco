@@ -1,8 +1,10 @@
 package com.cadastrod.cadastro.controller;
 
 
+import com.cadastrod.cadastro.model.UserDadosModel;
 import com.cadastrod.cadastro.model.UserModel;
 import com.cadastrod.cadastro.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +15,7 @@ public class UserController {
     /*
     @PostMapping -- MANDAR
     @PutMapping -- ALTERAR
-    @PatchMapping -- ALTERAR (VERIFICAR A DIFERENÇA DO PUT)
+    @PatchMapping -- ALTERAR (VERIFICAR A DIFERENÇA DO PUT) -- PATCH SERVE PARA ALTERAR OS DADOS PARCIALMENTE ENQUANTO O PUT NECESSITA O ENVIO DO OBJETO COMPLETO
     @DeleteMapping -- DELETAR
     @GetMapping -- PUXAR
     */
@@ -37,5 +39,12 @@ public class UserController {
     @PostMapping("/post")
     public UserModel create(@RequestBody UserModel userModel) {
         return userService.save(userModel);
+    }
+
+    @PatchMapping("/{id}/dados")
+    public UserModel atualizarDados(
+            @PathVariable Integer id,
+            @RequestBody UserDadosModel dados) {
+        return userService.atualizarDados(id, dados);
     }
 }

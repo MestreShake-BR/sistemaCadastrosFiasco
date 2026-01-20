@@ -1,6 +1,4 @@
 package com.cadastrod.cadastro.service;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cadastrod.cadastro.model.UserModel;
@@ -25,4 +23,3 @@ public class AuthService {
         return userRepository.save(user);
     }
 }
-
