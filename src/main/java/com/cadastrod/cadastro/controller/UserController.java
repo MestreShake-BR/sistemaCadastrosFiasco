@@ -5,6 +5,7 @@ import com.cadastrod.cadastro.model.UserDadosModel;
 import com.cadastrod.cadastro.model.UserModel;
 import com.cadastrod.cadastro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,5 +47,15 @@ public class UserController {
             @PathVariable Integer id,
             @RequestBody UserDadosModel dados) {
         return userService.atualizarDados(id, dados);
+    }
+
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<Void> deleteDados(@PathVariable Integer id) {
+        boolean isDeleted = userService.delete(id);
+        if (isDeleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
