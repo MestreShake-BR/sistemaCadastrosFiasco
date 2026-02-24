@@ -3,6 +3,9 @@ package com.cadastrod.cadastro.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 // Entity ele transforma uma classe em uam entidade do banco de dados
 
 @Entity
@@ -22,4 +25,9 @@ public class UserModel{
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY) //FK
     @JoinColumn(name = "perfil_id", referencedColumnName = "id")
     private UserDadosModel userDadosModel;
+
+
+    @ManyToMany(mappedBy = "membros")
+    private Set<BoardModel> boards = new HashSet<>();
+
 }
